@@ -69,7 +69,7 @@ class TaskController extends Controller
             
             $data = Task::create($task_inputs);
             
-            return $this->onSuccess($data, 'Project Created');
+            return $this->onSuccess($data, 'Task Created');
         }
 
         return $this->onError(401, 'Unauthorized Access');
