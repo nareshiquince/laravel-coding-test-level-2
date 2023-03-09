@@ -11,6 +11,7 @@ class UserProject extends Model
     use Uuids;
 
     protected $fillable = [
+        'id',
         'project_id',
         'user_id'
     ];
