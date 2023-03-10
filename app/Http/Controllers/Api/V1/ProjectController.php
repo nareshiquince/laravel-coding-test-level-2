@@ -22,7 +22,20 @@ class ProjectController extends Controller
     public function index(Request $request)
     {
         if ($this->isProductOwner($request->user())) {
-            $data = Project::all();
+
+            $q = $request->q;
+            $sortBy = $request->sortBy;
+            $sortDirection = $request->sortDirection;
+            $pageSize  = $request->pageSize;
+            $pageIndex = $request->pageIndex;
+
+            $data = Project::where('name', 'LIKE', '%' . $q . '%')
+            ->orderBy($sortBy, $sortDirection)
+            ->paginate($pageSize);
+
+            // echo $sortBy;
+            // die();
+            //$data = Project::orderBy($sortBy, $sortDirection)->paginate($pageSize)->get();
             return $this->onSuccess($data, 'Projects Retrieved');
         }
 

@@ -18,23 +18,13 @@ use App\Http\Controllers\Api\V1\TeamController;
 |
 */
 
-//API route for register new user
+//API route for register new user as ADMIN
 Route::post('/register', [AuthController::class, 'register']);
 //API route for login user
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-});
-
-//Protecting Routes
-Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::get('/profile', function(Request $request) {
-        return auth()->user();
-    });
-
-    // API route for logout user
-    Route::post('/logout', [App\Http\Controllers\API\AuthController::class, 'logout']);
 });
 
 Route::group(['prefix'=>'v1', 'middleware' => ['auth:sanctum']], function(){
