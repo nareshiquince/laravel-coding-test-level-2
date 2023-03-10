@@ -1,0 +1,627 @@
+openapi: 3.0.0
+info:
+  title: Laravel Test Final APIs
+  version: 1.0.0
+servers:
+  - url: http://127.0.0.1:8000
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+paths:
+  /api/register:
+    post:
+      tags:
+        - default
+      summary: http://127.0.0.1:8000/api/register
+      description: This API is used for creating ADMIN for the project.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: project_admin
+                password:
+                  type: string
+                  example: testing123
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/users:
+    get:
+      tags:
+        - default
+      summary: http://127.0.0.1:8000/api/v1/users
+      description: >-
+        GET retrieve all users only ADMIN role can access this API (ex. GET
+        /api/v1/users).
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - default
+      summary: http://127.0.0.1:8000/api/v1/users
+      description: >-
+        POST create one user only ADMIN can access this API (ex. POST
+        /api/v1/users)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                username: product_owner
+                password: testing123
+                role_id: 1379cf73-7b7d-4ac7-a39d-13e5af17aef4
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/users/ae25e2ef-7231-41e0-81c5-8cf9c7dbf6b7:
+    get:
+      tags:
+        - default
+      summary: http://127.0.0.1:8000/api/v1/users/ae25e2ef-7231-41e0-81c5-8cf9c7dbf6b7
+      description: >-
+        GET retrieve user by id only ADMIN can access this API (ex. GET
+        /api/v1/users/{user_id})
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/users/38a4c790-c16d-457a-ba67-5a053e280ef2:
+    put:
+      tags:
+        - default
+      summary: http://127.0.0.1:8000/api/v1/users/a8221c87-c514-4843-9d53-ff06465992a9
+      description: >-
+        PUT update one user only ADMIN can access this API (ex. PUT
+        /api/v1/users/{user_id})
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                username: george_product_owner
+                role_id: 1379cf73-7b7d-4ac7-a39d-13e5af17aef4
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/users/2502a4a4-0062-42e6-ab1d-4ac4385f3697:
+    delete:
+      tags:
+        - default
+      summary: http://127.0.0.1:8000/api/v1/users/ff3f6d28-255b-4a37-aecc-3fa5f9b3777f
+      description: >-
+        DELETE remove one user only ADMIN role can access this API (ex. DELETE
+        /api/v1/users/{user_id})
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/login:
+    post:
+      tags:
+        - default
+      summary: http://127.0.0.1:8000/api/login
+      description: "This API is used for login purpose to create the bearer token for other APIs access based on role.\r\n"
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: george_product_owner
+                password:
+                  type: string
+                  example: testing123
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/project:
+    post:
+      tags:
+        - default
+      summary: http://127.0.0.1:8000/api/v1/project
+      description: >-
+        POST this api is used by product owner to create the projects and assign
+        users to project. Only product owner can access this API.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Project Four
+                assign_users:
+                  - e622a5c8-0a8e-48d9-b1de-025eae22c8e4
+                  - 4047ed5d-9974-47db-b014-3ceaf29d2d11
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - default
+      summary: >-
+        http://127.0.0.1:8000/api/v1/project?q=project&pageIndex=2&pageSize=2&sortBy=name&sortDirection=ASC
+      description: >-
+        GET this api is used to get the projects list with query strings search,
+        sort, page index, page size etc Only product owner can access this API.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: q
+          in: query
+          schema:
+            type: string
+          example: project
+        - name: pageIndex
+          in: query
+          schema:
+            type: integer
+          example: '2'
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+          example: '2'
+        - name: sortBy
+          in: query
+          schema:
+            type: string
+          example: name
+        - name: sortDirection
+          in: query
+          schema:
+            type: string
+          example: ASC
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/project/037f009f-783f-42ae-8626-4a80737f055e:
+    get:
+      tags:
+        - default
+      summary: >-
+        http://127.0.0.1:8000/api/v1/project/037f009f-783f-42ae-8626-4a80737f055e
+      description: >-
+        GET this api is used for getting the individual project details. Only
+        product owner can access this API.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/project/583c2775-9f34-41ab-b6d6-8205179ebc06:
+    put:
+      tags:
+        - default
+      summary: >-
+        http://127.0.0.1:8000/api/v1/project/583c2775-9f34-41ab-b6d6-8205179ebc06
+      description: >-
+        PUT this api is used to edit the project.Only product owner can access
+        this API.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Press Live
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/project/c82e8ad6-1ace-4fdc-b886-b846ac1f5b95:
+    delete:
+      tags:
+        - default
+      summary: >-
+        http://127.0.0.1:8000/api/v1/project/c82e8ad6-1ace-4fdc-b886-b846ac1f5b95
+      description: >-
+        Delete this API is used for project deletion.Only product owner can
+        access this API.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/task:
+    get:
+      tags:
+        - default
+      summary: http://127.0.0.1:8000/api/v1/task
+      description: >-
+        GET this API is used for task listing. Only product owner can access
+        this API.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - default
+      summary: http://127.0.0.1:8000/api/v1/task
+      description: >-
+        POST this API creates the task and assign the team member. Only product
+        owner can access this API.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: Basic Framework Setup
+                description: Please create basic setup
+                status: NOT_STARTED
+                project_id: 037f009f-783f-42ae-8626-4a80737f055e
+                user_id: e622a5c8-0a8e-48d9-b1de-025eae22c8e4
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/task/343448df-96bd-45bd-8984-ffc6bb206acb:
+    get:
+      tags:
+        - default
+      summary: http://127.0.0.1:8000/api/v1/task/343448df-96bd-45bd-8984-ffc6bb206acb
+      description: >-
+        GET this API is used for fetching the individual task details. Only
+        product owner can access this API.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/task/ac6e186a-93bc-4409-b611-815a66cf0b6e:
+    put:
+      tags:
+        - default
+      summary: http://127.0.0.1:8000/api/v1/task/ac6e186a-93bc-4409-b611-815a66cf0b6e
+      description: >-
+        PUT this API is used for updating the task details.Only product owner
+        can access this API.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: Framework Setup
+                description: create set up of this project
+                status: IN_PROGRESS
+                project_id: 037f009f-783f-42ae-8626-4a80737f055e
+                user_id: e622a5c8-0a8e-48d9-b1de-025eae22c8e4
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/task/eea7a958-f2d3-4582-84d9-dd29edb3f21b:
+    delete:
+      tags:
+        - default
+      summary: http://127.0.0.1:8000/api/v1/task/eea7a958-f2d3-4582-84d9-dd29edb3f21b
+      description: >-
+        DElETE this API is used for deleting the task. Only product owner can
+        access this API.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/team:
+    get:
+      tags:
+        - default
+      summary: http://127.0.0.1:8000/api/v1/team
+      description: >-
+        GET this API is used for fetching the team tasks based on the user
+        token. Only Team Member can access this API.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/team/ac6e186a-93bc-4409-b611-815a66cf0b6e:
+    get:
+      tags:
+        - default
+      summary: http://127.0.0.1:8000/api/v1/team/ac6e186a-93bc-4409-b611-815a66cf0b6e
+      description: >-
+        GET this API is used for getting the individual task based on user
+        token. Only Team Member can access this API.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - default
+      summary: http://127.0.0.1:8000/api/v1/team/ac6e186a-93bc-4409-b611-815a66cf0b6e
+      description: >-
+        PUT this API is used by team member to update the task with there
+        status. Only Team Member can access this API.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: SET UP Edit
+                description: This is edit text
+                status: COMPLETED
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

@@ -1,0 +1,1143 @@
+{
+	"info": {
+		"_postman_id": "0ab731ed-eb34-4f68-93a7-8bb63d5a2fd1",
+		"name": "Laravel Test Final APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:8000/api/register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "project_admin",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "testing123",
+							"type": "default"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register"
+					]
+				},
+				"description": "This API is used for creating ADMIN for the project."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/v1/users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "4|5EoGm53tLIGfgyY4PlTe7PtyMppmO68L22mhqrlD",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/users",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				},
+				"description": "GET retrieve all users only ADMIN role can access this API (ex. GET /api/v1/users)."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/v1/users/ae25e2ef-7231-41e0-81c5-8cf9c7dbf6b7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "4|5EoGm53tLIGfgyY4PlTe7PtyMppmO68L22mhqrlD",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/users/ae25e2ef-7231-41e0-81c5-8cf9c7dbf6b7",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"ae25e2ef-7231-41e0-81c5-8cf9c7dbf6b7"
+					]
+				},
+				"description": "GET retrieve user by id only ADMIN can access this API (ex. GET /api/v1/users/{user_id})"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/v1/users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "4|5EoGm53tLIGfgyY4PlTe7PtyMppmO68L22mhqrlD",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"product_owner\",\r\n    \"password\":\"testing123\",\r\n    \"role_id\":\"1379cf73-7b7d-4ac7-a39d-13e5af17aef4\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/users",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				},
+				"description": "POST create one user only ADMIN can access this API (ex. POST /api/v1/users)"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/v1/users/a8221c87-c514-4843-9d53-ff06465992a9",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|ftz3yy5CJNEOauFldLpSA2p5h4aSfUrqIMd7v1NS",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"george_product_owner\",\r\n    \"role_id\":\"1379cf73-7b7d-4ac7-a39d-13e5af17aef4\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/users/38a4c790-c16d-457a-ba67-5a053e280ef2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"38a4c790-c16d-457a-ba67-5a053e280ef2"
+					]
+				},
+				"description": "PUT update one user only ADMIN can access this API (ex. PUT /api/v1/users/{user_id})"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/v1/users/ff3f6d28-255b-4a37-aecc-3fa5f9b3777f",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|ftz3yy5CJNEOauFldLpSA2p5h4aSfUrqIMd7v1NS",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/users/2502a4a4-0062-42e6-ab1d-4ac4385f3697",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"2502a4a4-0062-42e6-ab1d-4ac4385f3697"
+					]
+				},
+				"description": "DELETE remove one user only ADMIN role can access this API (ex. DELETE /api/v1/users/{user_id})"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "george_product_owner",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "testing123",
+							"type": "default"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					]
+				},
+				"description": "This API is used for login purpose to create the bearer token for other APIs access based on role.\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/v1/project",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5|dbAoMxQLfGZI4P1FnubsdXIK9dmruhEBC70ro2cn",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Project Four\",\r\n    \"assign_users\":[\"e622a5c8-0a8e-48d9-b1de-025eae22c8e4\", \"4047ed5d-9974-47db-b014-3ceaf29d2d11\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/project",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"project"
+					]
+				},
+				"description": "POST this api is used by product owner to create the projects and assign users to project. Only product owner can access this API."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/v1/project/037f009f-783f-42ae-8626-4a80737f055e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5|dbAoMxQLfGZI4P1FnubsdXIK9dmruhEBC70ro2cn",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/project/037f009f-783f-42ae-8626-4a80737f055e",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"project",
+						"037f009f-783f-42ae-8626-4a80737f055e"
+					]
+				},
+				"description": "GET this api is used for getting the individual project details. Only product owner can access this API."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/v1/project?q=project&pageIndex=2&pageSize=2&sortBy=name&sortDirection=ASC",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5|dbAoMxQLfGZI4P1FnubsdXIK9dmruhEBC70ro2cn",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/project?q=project&pageIndex=2&pageSize=2&sortBy=name&sortDirection=ASC",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"project"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "project"
+						},
+						{
+							"key": "pageIndex",
+							"value": "2"
+						},
+						{
+							"key": "pageSize",
+							"value": "2"
+						},
+						{
+							"key": "sortBy",
+							"value": "name"
+						},
+						{
+							"key": "sortDirection",
+							"value": "ASC"
+						}
+					]
+				},
+				"description": "GET this api is used to get the projects list with query strings search, sort, page index, page size etc Only product owner can access this API."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/v1/project/583c2775-9f34-41ab-b6d6-8205179ebc06",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5|dbAoMxQLfGZI4P1FnubsdXIK9dmruhEBC70ro2cn",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Press Live\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/project/583c2775-9f34-41ab-b6d6-8205179ebc06",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"project",
+						"583c2775-9f34-41ab-b6d6-8205179ebc06"
+					]
+				},
+				"description": "PUT this api is used to edit the project.Only product owner can access this API."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/v1/project/c82e8ad6-1ace-4fdc-b886-b846ac1f5b95",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5|dbAoMxQLfGZI4P1FnubsdXIK9dmruhEBC70ro2cn",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/project/c82e8ad6-1ace-4fdc-b886-b846ac1f5b95",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"project",
+						"c82e8ad6-1ace-4fdc-b886-b846ac1f5b95"
+					]
+				},
+				"description": "Delete this API is used for project deletion.Only product owner can access this API."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/v1/task",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5|dbAoMxQLfGZI4P1FnubsdXIK9dmruhEBC70ro2cn",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/task",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"task"
+					]
+				},
+				"description": "GET this API is used for task listing. Only product owner can access this API."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/v1/task/343448df-96bd-45bd-8984-ffc6bb206acb",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5|dbAoMxQLfGZI4P1FnubsdXIK9dmruhEBC70ro2cn",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/task/343448df-96bd-45bd-8984-ffc6bb206acb",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"task",
+						"343448df-96bd-45bd-8984-ffc6bb206acb"
+					]
+				},
+				"description": "GET this API is used for fetching the individual task details. Only product owner can access this API."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/v1/task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5|dbAoMxQLfGZI4P1FnubsdXIK9dmruhEBC70ro2cn",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Basic Framework Setup\",\r\n    \"description\":\"Please create basic setup\",\r\n    \"status\":\"NOT_STARTED\",\r\n    \"project_id\":\"037f009f-783f-42ae-8626-4a80737f055e\",\r\n    \"user_id\":\"e622a5c8-0a8e-48d9-b1de-025eae22c8e4\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/task",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"task"
+					]
+				},
+				"description": "POST this API creates the task and assign the team member. Only product owner can access this API."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/v1/task/ac6e186a-93bc-4409-b611-815a66cf0b6e",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5|dbAoMxQLfGZI4P1FnubsdXIK9dmruhEBC70ro2cn",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Framework Setup\",\r\n    \"description\":\"create set up of this project\",\r\n    \"status\":\"IN_PROGRESS\",\r\n    \"project_id\":\"037f009f-783f-42ae-8626-4a80737f055e\",\r\n    \"user_id\":\"e622a5c8-0a8e-48d9-b1de-025eae22c8e4\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/task/ac6e186a-93bc-4409-b611-815a66cf0b6e",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"task",
+						"ac6e186a-93bc-4409-b611-815a66cf0b6e"
+					]
+				},
+				"description": "PUT this API is used for updating the task details.Only product owner can access this API."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/v1/task/eea7a958-f2d3-4582-84d9-dd29edb3f21b",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5|dbAoMxQLfGZI4P1FnubsdXIK9dmruhEBC70ro2cn",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/task/eea7a958-f2d3-4582-84d9-dd29edb3f21b",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"task",
+						"eea7a958-f2d3-4582-84d9-dd29edb3f21b"
+					]
+				},
+				"description": "DElETE this API is used for deleting the task. Only product owner can access this API."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/v1/team",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "6|DpuuFTfBWccnfeIrPFcSmn86U7c5SVP2HLXpVG3u",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/team",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"team"
+					]
+				},
+				"description": "GET this API is used for fetching the team tasks based on the user token. Only Team Member can access this API."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/v1/team/ac6e186a-93bc-4409-b611-815a66cf0b6e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "6|DpuuFTfBWccnfeIrPFcSmn86U7c5SVP2HLXpVG3u",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/team/ac6e186a-93bc-4409-b611-815a66cf0b6e",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"team",
+						"ac6e186a-93bc-4409-b611-815a66cf0b6e"
+					]
+				},
+				"description": "GET this API is used for getting the individual task based on user token. Only Team Member can access this API."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/v1/team/ac6e186a-93bc-4409-b611-815a66cf0b6e",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "6|DpuuFTfBWccnfeIrPFcSmn86U7c5SVP2HLXpVG3u",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"SET UP Edit\",\r\n    \"description\":\"This is edit text\",\r\n    \"status\":\"COMPLETED\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/team/ac6e186a-93bc-4409-b611-815a66cf0b6e",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"team",
+						"ac6e186a-93bc-4409-b611-815a66cf0b6e"
+					]
+				},
+				"description": "PUT this API is used by team member to update the task with there status. Only Team Member can access this API."
+			},
+			"response": []
+		}
+	]
+}
